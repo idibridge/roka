@@ -1,0 +1,536 @@
+import { useState, useEffect, useRef, useCallback } from "react";
+
+const T = {
+  ru: {
+    brand: "РОКА", brandSub: "ЦИФРОВЫЕ АКТИВЫ",
+    nav: ["Услуги", "Токенизация", "О компании", "Блог", "Контакты"],
+    heroBadge: "259-ФЗ · Цифровой рубль · ЦФА · RWA",
+    heroT1: "Токенизация бизнеса.", heroT2: "Новый источник капитала", heroT3: "через цифровые активы",
+    heroP: "Помогаем бизнесу привлекать финансирование через выпуск ЦФА и токенизацию реальных активов — в правовом поле России и международных юрисдикций.",
+    cta1: "Получить консультацию", cta2: "Наши услуги",
+    secSvc: "Услуги", svcT: "Полный цикл решений для цифровой трансформации",
+    svcs: [
+      { t: "Токенизация МСП", d: "Выпуск ЦФА для привлечения финансирования малым и средним бизнесом в рамках 259-ФЗ" },
+      { t: "Цифровой рубль", d: "Консультации и внедрение расчётов в цифровом рубле ЦБ РФ" },
+      { t: "ЦФА-консалтинг", d: "Стратегический консалтинг по выходу на рынок цифровых финансовых активов" },
+      { t: "Юридическое сопровождение", d: "Структурирование сделок, проспект эмиссии, взаимодействие с регулятором" },
+      { t: "Платформенные решения", d: "Подбор и интеграция лицензированных платформ: Atomyze, СберЦФА и др." },
+      { t: "Привлечение инвесторов", d: "Роадшоу, поиск квалифицированных инвесторов, первичное размещение" },
+      { t: "Блокчейн-аудит", d: "Технический и правовой аудит смарт-контрактов и токен-экономики" },
+      { t: "Обучение и вебинары", d: "Образовательные программы для руководителей МСП по ЦФА и блокчейну" },
+    ],
+    secProc: "Процесс", procT: "Как это работает",
+    steps: [
+      { t: "Консультация и аудит", d: "Анализируем активы и определяем стратегию токенизации" },
+      { t: "Юридическая структуризация", d: "Готовим документацию по 259-ФЗ и требованиям ЦБ" },
+      { t: "Выпуск ЦФА", d: "Размещаем ЦФА на лицензированной платформе" },
+      { t: "Привлечение инвесторов", d: "Организуем роадшоу и обеспечиваем капитал" },
+      { t: "Сопровождение", d: "Комплаенс, отчётность и поддержка" },
+    ],
+    secAud: "Для кого", audT: "Решения для каждого участника рынка",
+    biz: "Для бизнеса", bizT: "Привлеките финансирование без банковских кредитов",
+    bizD: "Токенизируйте активы и получите доступ к новому источнику капитала через цифровые финансовые активы.",
+    inv: "Для инвесторов", invT: "Инвестируйте в реальные активы компаний",
+    invD: "Прозрачные цифровые инструменты, правовая защита и доступ к проверенным МСП через лицензированные платформы.",
+    more: "Подробнее", becInv: "Стать инвестором",
+    secPart: "Партнёры", partT: "Работаем с лицензированными платформами",
+    secBlog: "Блог", blogT: "Экспертные материалы", allArt: "Все статьи",
+    posts: [
+      { tag: "ЦФА", t: "Что такое ЦФА и как они меняют финансирование МСП", dt: "20 мар 2025", rd: "5 мин" },
+      { tag: "Цифровой рубль", t: "Цифровой рубль: пошаговое руководство для бизнеса", dt: "15 мар 2025", rd: "7 мин" },
+      { tag: "RWA", t: "Токенизация реальных активов: тренды 2025", dt: "10 мар 2025", rd: "6 мин" },
+    ],
+    ctaT: "Оставьте заявку —", ctaH: "разберём ситуацию бесплатно",
+    ctaD: "Расскажите о вашем бизнесе, и мы предложим оптимальную стратегию",
+    fN: "Ваше имя", fC: "Телефон или Email", fT: "Тип запроса",
+    fTypes: ["Я — представитель МСП", "Я — инвестор", "Я — партнёр"],
+    fBtn: "Получить бесплатную консультацию", fDis: "Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности",
+    ftD: "Цифровые Активы «Рока» — токенизация бизнеса, цифровой рубль и блокчейн-финансы.",
+    ftSvc: "Услуги", ftCo: "Компания", ftCnt: "Контакты",
+    ftL1: ["Токенизация МСП", "Цифровой рубль", "ЦФА-консалтинг", "Юрсопровождение"],
+    ftL2: ["О нас", "Блог", "FAQ", "Правовая база", "Контакты"],
+    cp: "© 2025 Цифровые Активы «Рока».", priv: "Политика конфиденциальности", terms: "Оферта", rm: "чтения",
+  },
+  en: {
+    brand: "ROKA", brandSub: "DIGITAL ASSETS",
+    nav: ["Services", "Tokenization", "About", "Blog", "Contact"],
+    heroBadge: "259-FZ · Digital Ruble · DFA · RWA",
+    heroT1: "Business tokenization.", heroT2: "A new source of capital", heroT3: "through digital assets",
+    heroP: "We help businesses raise financing through DFA issuance and real-world asset tokenization — in compliance with Russian and international jurisdictions.",
+    cta1: "Get a consultation", cta2: "Our services",
+    secSvc: "Services", svcT: "End-to-end solutions for digital transformation",
+    svcs: [
+      { t: "SME Tokenization", d: "DFA issuance for SME financing under Federal Law 259-FZ" },
+      { t: "Digital Ruble", d: "Consulting and implementation of CBR digital ruble settlements" },
+      { t: "DFA Consulting", d: "Strategic advisory on entering the digital financial assets market" },
+      { t: "Legal Support", d: "Deal structuring, emission prospectus, regulatory interaction" },
+      { t: "Platform Solutions", d: "Selection and integration of licensed platforms: Atomyze, SberDFA" },
+      { t: "Investor Relations", d: "Roadshow, qualified investor search, primary placement" },
+      { t: "Blockchain Audit", d: "Technical and legal audit of smart contracts and token economics" },
+      { t: "Education & Webinars", d: "Executive programs on DFA and blockchain for SME leaders" },
+    ],
+    secProc: "Process", procT: "How it works",
+    steps: [
+      { t: "Consultation & Audit", d: "Analyzing assets and determining the tokenization strategy" },
+      { t: "Legal Structuring", d: "Preparing documentation per 259-FZ and CBR requirements" },
+      { t: "DFA Issuance", d: "Placing digital financial assets on a licensed platform" },
+      { t: "Investor Placement", d: "Organizing roadshows and ensuring capital attraction" },
+      { t: "Ongoing Support", d: "Compliance, reporting, and support at every stage" },
+    ],
+    secAud: "For whom", audT: "Solutions for every market participant",
+    biz: "For business", bizT: "Raise financing without bank loans",
+    bizD: "Tokenize your assets and access new funding sources through digital financial assets.",
+    inv: "For investors", invT: "Invest in real assets of verified companies",
+    invD: "Transparent digital instruments, legal protection, and access to vetted SMEs via licensed platforms.",
+    more: "Learn more", becInv: "Become an investor",
+    secPart: "Partners", partT: "Working with licensed platforms",
+    secBlog: "Blog", blogT: "Expert insights", allArt: "All articles",
+    posts: [
+      { tag: "DFA", t: "What are DFAs and how they transform SME financing", dt: "Mar 20, 2025", rd: "5 min" },
+      { tag: "Digital Ruble", t: "Digital Ruble: a step-by-step guide for business", dt: "Mar 15, 2025", rd: "7 min" },
+      { tag: "RWA", t: "Real-world asset tokenization: 2025 trends", dt: "Mar 10, 2025", rd: "6 min" },
+    ],
+    ctaT: "Leave a request —", ctaH: "free consultation",
+    ctaD: "Tell us about your business and we'll propose the optimal strategy",
+    fN: "Your name", fC: "Phone or Email", fT: "Request type",
+    fTypes: ["I represent an SME", "I'm an investor", "I'm a partner"],
+    fBtn: "Get a free consultation", fDis: "By clicking, you agree to the privacy policy",
+    ftD: "ROKA Digital Assets — business tokenization, digital ruble, and blockchain finance.",
+    ftSvc: "Services", ftCo: "Company", ftCnt: "Contacts",
+    ftL1: ["SME Tokenization", "Digital Ruble", "DFA Consulting", "Legal Support"],
+    ftL2: ["About", "Blog", "FAQ", "Legal", "Contact"],
+    cp: "© 2025 ROKA Digital Assets.", priv: "Privacy Policy", terms: "Terms", rm: "read",
+  },
+};
+
+function useInView(th = 0.06) {
+  const r = useRef(null); const [v, setV] = useState(false);
+  useEffect(() => { const e = r.current; if (!e) return; const o = new IntersectionObserver(([x]) => { if (x.isIntersecting) setV(true); }, { threshold: th }); o.observe(e); return () => o.disconnect(); }, [th]);
+  return [r, v];
+}
+
+const Logo = ({ lang, h = 22 }) => (
+  <svg height={h} viewBox="0 0 128 28" fill="none">
+    <text x="0" y="23" fill="#E2E8F4" fontFamily="'Montserrat',sans-serif" fontWeight="800" fontSize="28" letterSpacing="4">{lang === "ru" ? "РОКА" : "ROKA"}</text>
+  </svg>
+);
+
+const sI = [
+  <svg key="0" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#00FFD0" strokeWidth="1.3"/><circle cx="14" cy="14" r="6" stroke="#00BFFF" strokeWidth="1.2" strokeDasharray="3.5 2.5"/><circle cx="14" cy="14" r="2.5" fill="#00FFD0"/></svg>,
+  <svg key="1" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3.5" y="3.5" width="21" height="21" rx="5.5" stroke="#00BFFF" strokeWidth="1.3"/><text x="14" y="19.5" textAnchor="middle" fill="#00FFD0" fontSize="13" fontWeight="700">₽</text></svg>,
+  <svg key="2" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M7 10h14M7 14h9M7 18h12" stroke="#00BFFF" strokeWidth="1.3" strokeLinecap="round"/><rect x="3" y="5" width="22" height="18" rx="4" stroke="#00FFD0" strokeWidth="1.3"/></svg>,
+  <svg key="3" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3v22M9 8l5-5 5 5" stroke="#00FFD0" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/><rect x="5" y="22" width="18" height="3" rx="1.5" fill="#00BFFF" opacity=".3"/></svg>,
+  <svg key="4" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="7" width="22" height="14" rx="3" stroke="#00BFFF" strokeWidth="1.3"/><circle cx="14" cy="14" r="3.5" stroke="#00FFD0" strokeWidth="1.2"/></svg>,
+  <svg key="5" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M5 21l5-7 4 3 6-9 3 4" stroke="#00FFD0" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/><rect x="3" y="3" width="22" height="22" rx="4" stroke="#00BFFF" strokeWidth="1.3"/></svg>,
+  <svg key="6" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="12" cy="12" r="8" stroke="#00BFFF" strokeWidth="1.3"/><line x1="18" y1="18" x2="25" y2="25" stroke="#00FFD0" strokeWidth="1.8" strokeLinecap="round"/></svg>,
+  <svg key="7" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M3 12l11-7 11 7-11 7z" stroke="#00FFD0" strokeWidth="1.3" strokeLinejoin="round"/><path d="M7 15v5c0 2 3.5 3.5 7 3.5s7-1.5 7-3.5v-5" stroke="#00BFFF" strokeWidth="1.2"/></svg>,
+];
+const Arr = () => <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9h10m-3-3l3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+const TgI = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.97 9.307c-.146.658-.537.818-1.084.51l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.913z"/></svg>;
+const BurgerI = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>;
+const CloseI = () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>;
+
+const plats = ["Atomyze", "СберЦФА", "Masterchain", "А-Токен", "Токеон", "Лайтхаус"];
+
+/* Section with staggered reveal */
+const Sec = ({ children, id, bg, delay = 0 }) => {
+  const [r, v] = useInView();
+  return <section ref={r} id={id} style={{ position: "relative", background: bg || "transparent", opacity: v ? 1 : 0, transform: v ? "translateY(0) scale(1)" : "translateY(40px) scale(0.98)", transition: `opacity 1s cubic-bezier(.16,1,.3,1) ${delay}s, transform 1s cubic-bezier(.16,1,.3,1) ${delay}s` }}>{children}</section>;
+};
+const Lb = ({ c }) => <div style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 12, fontWeight: 700, letterSpacing: ".14em", textTransform: "uppercase", color: "#00FFD0", marginBottom: 16 }}><span style={{ width: 24, height: 2, background: "linear-gradient(90deg,#00FFD0,#00BFFF)", display: "inline-block", borderRadius: 1 }} />{c}</div>;
+
+/* ═══ INTERACTIVE MESH — cursor blur, faster response ═══ */
+function HeroMesh({ children }) {
+  const cRef = useRef(null);
+  const bRef = useRef(null);
+  const mouse = useRef({ x: 0.5, y: 0.5 });
+  const pos = useRef({ x: 0.5, y: 0.5 });
+  const raf = useRef(null);
+
+  const handleMove = useCallback((e) => {
+    const rect = cRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouse.current = { x: (e.clientX - rect.left) / rect.width, y: (e.clientY - rect.top) / rect.height };
+  }, []);
+
+  useEffect(() => {
+    const loop = () => {
+      // Fast follow — 0.14 lerp = almost instant
+      pos.current.x += (mouse.current.x - pos.current.x) * 0.14;
+      pos.current.y += (mouse.current.y - pos.current.y) * 0.14;
+      if (bRef.current) {
+        bRef.current.style.left = `${pos.current.x * 100}%`;
+        bRef.current.style.top = `${pos.current.y * 100}%`;
+      }
+      raf.current = requestAnimationFrame(loop);
+    };
+    raf.current = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf.current);
+  }, []);
+
+  return (
+    <div ref={cRef} onMouseMove={handleMove} style={{ position: "relative", overflow: "hidden" }}>
+      {/* Vivid blobs — juicier saturated colors */}
+      <div className="mw">
+        <div className="mb" style={{ width: "52%", paddingBottom: "52%", top: "-22%", left: "-2%", background: "#00FFD0", animation: "mA 5.5s ease-in-out infinite" }} />
+        <div className="mb" style={{ width: "48%", paddingBottom: "48%", top: "0%", right: "-8%", background: "#E8879F", animation: "mB 6.5s ease-in-out infinite" }} />
+        <div className="mb" style={{ width: "44%", paddingBottom: "44%", bottom: "-8%", left: "18%", background: "#00BFFF", animation: "mC 5s ease-in-out infinite" }} />
+        <div className="mb" style={{ width: "38%", paddingBottom: "38%", top: "30%", right: "12%", background: "#00E88C", animation: "mD 4.5s ease-in-out infinite" }} />
+        <div className="mb" style={{ width: "32%", paddingBottom: "32%", bottom: "5%", left: "-3%", background: "#F0A5B8", opacity: ".32", animation: "mE 7s ease-in-out infinite" }} />
+        <div className="mb" style={{ width: "30%", paddingBottom: "30%", top: "-8%", right: "28%", background: "#00D4E8", animation: "mF 5.8s ease-in-out infinite" }} />
+        <div className="mb" style={{ width: "26%", paddingBottom: "26%", top: "50%", left: "35%", background: "#00CFFF", opacity: ".38", animation: "mG 4.8s ease-in-out infinite" }} />
+      </div>
+
+      {/* Cursor: blue blur spot — not a glow, a color blur */}
+      <div ref={bRef} style={{
+        position: "absolute", width: 220, height: 220,
+        transform: "translate(-50%,-50%)",
+        background: "radial-gradient(circle, #0090FF60 0%, #0070FF35 40%, transparent 68%)",
+        borderRadius: "50%", pointerEvents: "none", zIndex: 1,
+        filter: "blur(15px)",
+      }} />
+
+      <div style={{ position: "relative", zIndex: 2 }}>{children}</div>
+    </div>
+  );
+}
+
+const css = `
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Commissioner:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+::selection{background:#00FFD028;color:#fff}
+a{color:inherit;text-decoration:none}
+
+:root{
+  --fh:'Sora',sans-serif;
+  --fb:'Commissioner',sans-serif;
+  --bg:#0E1A30;--bg2:#121F38;--bg3:#162847;--bg3h:#1D3358;
+  --ac:#00FFD0;--ac2:#00BFFF;--t1:#E2E8F4;--t2:#7B8EAD;
+}
+.ctr{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* ═ Page load curtain ═ */
+@keyframes curtainUp{
+  0%{opacity:1;backdrop-filter:blur(12px)}
+  60%{opacity:1;backdrop-filter:blur(0px)}
+  100%{opacity:0;pointer-events:none;backdrop-filter:blur(0px)}
+}
+.curtain{
+  position:fixed;inset:0;z-index:10000;
+  background:radial-gradient(ellipse at 50% 50%, #121F38 0%, #0A1222 100%);
+  display:flex;align-items:center;justify-content:center;
+  animation:curtainUp 1.6s cubic-bezier(.4,0,.2,1) 0.3s forwards;
+}
+@keyframes logoReveal{
+  0%{opacity:0;transform:scale(.85);filter:blur(10px)}
+  50%{opacity:1;transform:scale(1.02);filter:blur(0px)}
+  100%{opacity:0;transform:scale(1.05);filter:blur(0px)}
+}
+.curtain-logo{animation:logoReveal 1.4s cubic-bezier(.4,0,.2,1) 0.1s forwards;opacity:0}
+
+/* ═ Buttons ═ */
+.bp{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:60px;border:none;cursor:pointer;background:linear-gradient(135deg,#00FFD0,#00D4AA);color:#0A1020;font-family:var(--fh);font-weight:600;font-size:15px;letter-spacing:.01em;transition:all .35s cubic-bezier(.16,1,.3,1);box-shadow:0 4px 24px #00FFD022}
+.bp:hover{transform:translateY(-2px);box-shadow:0 10px 40px #00FFD038}
+.bo{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border-radius:60px;cursor:pointer;background:transparent;color:var(--t1);font-family:var(--fh);font-weight:500;font-size:15px;border:1.5px solid #E2E8F418;transition:all .35s cubic-bezier(.16,1,.3,1)}
+.bo:hover{border-color:var(--ac);color:var(--ac);transform:translateY(-2px)}
+
+.nb{position:fixed;top:0;left:0;right:0;z-index:200;backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);background:#0E1A3088;border-bottom:1px solid #E2E8F406;transition:padding .3s ease}
+.lang{display:flex;border-radius:12px;background:#0E1A30;border:1px solid #E2E8F40C;padding:3px;gap:2px}
+.lang button{padding:7px 16px;border:none;border-radius:9px;cursor:pointer;font-family:var(--fh);font-weight:600;font-size:12px;letter-spacing:.04em;transition:all .25s;background:transparent;color:var(--t2)}
+.lang button.on{background:linear-gradient(135deg,#00FFD0,#00D4AA);color:#0E1A30;box-shadow:0 2px 10px #00FFD028}
+
+.mob-menu{position:fixed;inset:0;z-index:300;background:#0E1A30F5;backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mob-menu a{font-family:var(--fh);font-size:22px;font-weight:600;color:var(--t1)}
+
+.sc{background:var(--bg3);border-radius:20px;padding:36px 28px;border:1px solid #E2E8F408;cursor:pointer;overflow:hidden;transition:all .4s cubic-bezier(.16,1,.3,1)}
+.sc:hover{background:var(--bg3h);transform:translateY(-5px);border-color:#00FFD018;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.sc:hover .ci{color:var(--ac)}
+.ac-c{flex:1;padding:48px 40px;border-radius:24px;border:1px solid #E2E8F408;transition:all .4s cubic-bezier(.16,1,.3,1)}
+.ac-c:hover{transform:translateY(-4px);border-color:#00FFD014}
+.bc{background:var(--bg3);border-radius:20px;overflow:hidden;border:1px solid #E2E8F408;transition:all .4s cubic-bezier(.16,1,.3,1);cursor:pointer}
+.bc:hover{transform:translateY(-4px);border-color:#00BFFF20;box-shadow:0 16px 48px rgba(0,0,0,.3)}
+.fi{width:100%;padding:16px 20px;border-radius:14px;background:var(--bg);border:1px solid #E2E8F40E;color:var(--t1);font-family:var(--fb);font-size:15px;outline:none;transition:border-color .3s}
+.fi:focus{border-color:var(--ac)}.fi::placeholder{color:var(--t2)}
+.ftg{position:fixed;bottom:28px;right:28px;z-index:90;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#00FFD0,#00D4AA);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px #00FFD028;cursor:pointer;border:none;transition:all .3s cubic-bezier(.16,1,.3,1);color:#0A1020}
+.ftg:hover{transform:scale(1.08) translateY(-2px);box-shadow:0 12px 36px #00FFD045}
+
+.pt{display:flex;gap:24px;animation:sl 18s linear infinite}
+@keyframes sl{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═ Mesh blobs — FASTER, more dynamic (3-5s cycles) ═ */
+.mw{position:absolute;inset:0;overflow:hidden;z-index:0}
+.mb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;will-change:transform}
+
+@keyframes mA{0%{transform:translate(0,0) scale(1)}15%{transform:translate(12%,-10%) scale(1.18)}35%{transform:translate(-6%,14%) scale(.88)}55%{transform:translate(10%,6%) scale(1.1)}75%{transform:translate(-10%,-8%) scale(.93)}100%{transform:translate(0,0) scale(1)}}
+@keyframes mB{0%{transform:translate(0,0) scale(1)}15%{transform:translate(-12%,12%) scale(1.12)}35%{transform:translate(10%,-6%) scale(.85)}55%{transform:translate(-8%,10%) scale(1.15)}75%{transform:translate(6%,-12%) scale(.94)}100%{transform:translate(0,0) scale(1)}}
+@keyframes mC{0%{transform:translate(0,0) scale(1.06)}20%{transform:translate(9%,11%) scale(.82)}45%{transform:translate(-12%,-7%) scale(1.2)}70%{transform:translate(6%,-10%) scale(.9)}100%{transform:translate(0,0) scale(1.06)}}
+@keyframes mD{0%{transform:translate(0,0) scale(.94)}20%{transform:translate(14%,-8%) scale(1.14)}45%{transform:translate(-5%,12%) scale(.86)}70%{transform:translate(-11%,-5%) scale(1.08)}100%{transform:translate(0,0) scale(.94)}}
+@keyframes mE{0%{transform:translate(0,0) scale(1)}25%{transform:translate(8%,14%) scale(1.18)}50%{transform:translate(-12%,-10%) scale(.85)}75%{transform:translate(5%,-6%) scale(1.05)}100%{transform:translate(0,0) scale(1)}}
+@keyframes mF{0%{transform:translate(0,0) scale(1.1)}20%{transform:translate(-10%,8%) scale(.88)}45%{transform:translate(12%,-12%) scale(1.16)}70%{transform:translate(-7%,5%) scale(.92)}100%{transform:translate(0,0) scale(1.1)}}
+@keyframes mG{0%{transform:translate(0,0) scale(.9)}25%{transform:translate(11%,9%) scale(1.12)}50%{transform:translate(-9%,-11%) scale(.96)}75%{transform:translate(4%,7%) scale(1.06)}100%{transform:translate(0,0) scale(.9)}}
+
+/* ═ Responsive ═ */
+@media(min-width:1025px){.mob-btn{display:none !important}}
+@media(max-width:1024px){.nl{display:none !important}.mob-btn{display:flex !important}.sg8{grid-template-columns:repeat(2,1fr) !important}.sg5{grid-template-columns:repeat(3,1fr) !important}}
+@media(max-width:768px){.sg8{grid-template-columns:1fr !important}.sg5{grid-template-columns:1fr 1fr !important}.ag{flex-direction:column !important}.bg3g{grid-template-columns:1fr !important}.cfr{flex-direction:column !important}.fc{flex-direction:column !important;gap:28px !important}.hero-pad{padding-top:110px !important;padding-bottom:60px !important;min-height:auto !important}.ftg{bottom:16px;right:16px;width:48px;height:48px}.nav-cta{display:none !important}.ac-c{padding:32px 24px !important}}
+@media(max-width:480px){.sg5{grid-template-columns:1fr !important}.ctr{padding:0 16px}.ac-c{padding:28px 18px !important}}
+`;
+
+export default function RokaHomepage() {
+  const [lang, setLang] = useState("ru");
+  const [sc, setSc] = useState(false);
+  const [mob, setMob] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const t = T[lang];
+
+  useEffect(() => {
+    const h = () => setSc(window.scrollY > 36);
+    window.addEventListener("scroll", h, { passive: true });
+    setTimeout(() => setLoaded(true), 1900);
+    return () => window.removeEventListener("scroll", h);
+  }, []);
+
+  const H = ({ children, s }) => <h2 style={{ fontFamily: "var(--fh)", fontWeight: 600, fontSize: s || "clamp(28px, 4vw, 46px)", color: "var(--t1)", lineHeight: 1.15, marginBottom: 24, letterSpacing: "-.01em" }}>{children}</h2>;
+
+  return (
+    <div style={{ background: "var(--bg)", minHeight: "100vh", overflowX: "hidden", fontFamily: "var(--fb)", lineHeight: 1.7, color: "var(--t1)", WebkitFontSmoothing: "antialiased" }}>
+      <style>{css}</style>
+
+      {/* ═ CINEMATIC LOAD CURTAIN ═ */}
+      {!loaded && (
+        <div className="curtain">
+          <div className="curtain-logo">
+            <svg height="40" viewBox="0 0 160 40" fill="none">
+              <text x="0" y="34" fill="#E2E8F4" fontFamily="'Montserrat',sans-serif" fontWeight="800" fontSize="40" letterSpacing="6">{lang === "ru" ? "РОКА" : "ROKA"}</text>
+            </svg>
+          </div>
+        </div>
+      )}
+
+      {/* noise */}
+      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 9998, opacity: .018, mixBlendMode: "overlay", backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: "128px" }} />
+
+      {/* NAV */}
+      <nav className="nb" style={{ padding: sc ? "10px 0" : "14px 0" }}>
+        <div className="ctr" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <Logo lang={lang} h={22} />
+            <span style={{ fontSize: 8.5, fontWeight: 600, color: "var(--t2)", letterSpacing: ".12em", fontFamily: "var(--fh)", alignSelf: "flex-end", marginBottom: 1 }}>{t.brandSub}</span>
+          </div>
+          <div className="nl" style={{ display: "flex", gap: 28, fontSize: 14, fontWeight: 500, color: "var(--t2)", fontFamily: "var(--fh)" }}>
+            {t.nav.map(n => <a key={n} href="#" style={{ transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "var(--t1)"} onMouseLeave={e => e.target.style.color = "var(--t2)"}>{n}</a>)}
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <div className="lang">
+              <button className={lang === "ru" ? "on" : ""} onClick={() => setLang("ru")}>RU</button>
+              <button className={lang === "en" ? "on" : ""} onClick={() => setLang("en")}>EN</button>
+            </div>
+            <button className="bp nav-cta" style={{ padding: "10px 24px", fontSize: 13 }}>{t.cta1}</button>
+            <button className="mob-btn" onClick={() => setMob(true)} style={{ background: "none", border: "none", color: "var(--t1)", cursor: "pointer", display: "none" }}><BurgerI /></button>
+          </div>
+        </div>
+      </nav>
+
+      {mob && (
+        <div className="mob-menu" onClick={() => setMob(false)}>
+          <button onClick={() => setMob(false)} style={{ position: "absolute", top: 20, right: 20, background: "none", border: "none", color: "var(--t1)", cursor: "pointer" }}><CloseI /></button>
+          {t.nav.map(n => <a key={n} href="#">{n}</a>)}
+          <div className="lang" style={{ marginTop: 12 }}>
+            <button className={lang === "ru" ? "on" : ""} onClick={e => { e.stopPropagation(); setLang("ru"); }}>RU</button>
+            <button className={lang === "en" ? "on" : ""} onClick={e => { e.stopPropagation(); setLang("en"); }}>EN</button>
+          </div>
+          <button className="bp" style={{ marginTop: 8 }}>{t.cta1}</button>
+        </div>
+      )}
+
+      {/* ═══ HERO ═══ */}
+      <Sec id="hero">
+        <HeroMesh>
+          <div className="hero-pad" style={{ paddingTop: 150, paddingBottom: 100, minHeight: "92vh", display: "flex", alignItems: "center" }}>
+            <div className="ctr" style={{ width: "100%" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 20px", borderRadius: 100, border: "1px solid #00FFD025", background: "#00FFD00C", fontSize: 12.5, color: "#00FFD0", fontWeight: 600, marginBottom: 32, backdropFilter: "blur(8px)", fontFamily: "var(--fh)" }}>
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#00FFD0" }} />
+                {t.heroBadge}
+              </div>
+              <h1 style={{ fontFamily: "var(--fh)", fontWeight: 700, fontSize: "clamp(32px, 5.5vw, 68px)", lineHeight: 1.08, letterSpacing: "-.02em", maxWidth: 850, marginBottom: 28 }}>
+                {t.heroT1}{" "}
+                <span style={{ background: "linear-gradient(135deg,#00FFD0 0%,#00BFFF 50%,#E8879F 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{t.heroT2}</span>{" "}
+                {t.heroT3}
+              </h1>
+              <p style={{ fontSize: 18, color: "var(--t2)", maxWidth: 580, lineHeight: 1.75, marginBottom: 40 }}>{t.heroP}</p>
+              <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+                <button className="bp">{t.cta1}</button>
+                <button className="bo">{t.cta2} <Arr /></button>
+              </div>
+            </div>
+          </div>
+        </HeroMesh>
+      </Sec>
+
+      {/* SERVICES */}
+      <Sec id="services" bg="var(--bg2)" delay={0.05}>
+        <div style={{ paddingTop: 90, paddingBottom: 100 }}>
+          <div className="ctr">
+            <Lb c={t.secSvc} /><H>{t.svcT}</H>
+            <div className="sg8" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginTop: 44 }}>
+              {t.svcs.map((s, i) => (
+                <div key={i} className="sc">
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
+                    {sI[i]}
+                    <span className="ci" style={{ fontFamily: "var(--fh)", fontSize: 11, fontWeight: 600, color: "var(--t2)", transition: "color .3s" }}>0{i + 1}</span>
+                  </div>
+                  <h3 style={{ fontFamily: "var(--fh)", fontWeight: 600, fontSize: 16, marginBottom: 8, lineHeight: 1.3 }}>{s.t}</h3>
+                  <p style={{ color: "var(--t2)", fontSize: 14, lineHeight: 1.65 }}>{s.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* PROCESS */}
+      <Sec id="process" delay={0.05}>
+        <div style={{ paddingTop: 100, paddingBottom: 100 }}>
+          <div className="ctr">
+            <Lb c={t.secProc} /><H>{t.procT}</H>
+            <div className="sg5" style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 24, marginTop: 52 }}>
+              {t.steps.map((s, i) => (
+                <div key={i}>
+                  <div style={{ fontFamily: "var(--fh)", fontWeight: 800, fontSize: 56, background: "linear-gradient(135deg,#00FFD014,#00BFFF0C)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1, marginBottom: 14 }}>0{i + 1}</div>
+                  <h4 style={{ fontFamily: "var(--fh)", fontWeight: 600, fontSize: 15, marginBottom: 8, color: "var(--ac)" }}>{s.t}</h4>
+                  <p style={{ color: "var(--t2)", fontSize: 14, lineHeight: 1.65 }}>{s.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* AUDIENCE */}
+      <Sec id="audience" bg="var(--bg2)" delay={0.05}>
+        <div style={{ paddingTop: 90, paddingBottom: 100 }}>
+          <div className="ctr">
+            <Lb c={t.secAud} /><H>{t.audT}</H>
+            <div className="ag" style={{ display: "flex", gap: 20, marginTop: 40 }}>
+              <div className="ac-c" style={{ background: "linear-gradient(160deg,var(--bg3),var(--bg3h))" }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "var(--ac)", letterSpacing: ".12em", textTransform: "uppercase", marginBottom: 20, fontFamily: "var(--fh)" }}>{t.biz}</div>
+                <h3 style={{ fontFamily: "var(--fh)", fontWeight: 700, fontSize: "clamp(22px, 2.8vw, 32px)", lineHeight: 1.2, marginBottom: 16 }}>{t.bizT}</h3>
+                <p style={{ color: "var(--t2)", fontSize: 16, lineHeight: 1.75, marginBottom: 32 }}>{t.bizD}</p>
+                <button className="bp" style={{ fontSize: 14 }}>{t.more}</button>
+              </div>
+              <div className="ac-c" style={{ background: "linear-gradient(160deg,var(--bg),#152B48)" }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "var(--ac2)", letterSpacing: ".12em", textTransform: "uppercase", marginBottom: 20, fontFamily: "var(--fh)" }}>{t.inv}</div>
+                <h3 style={{ fontFamily: "var(--fh)", fontWeight: 700, fontSize: "clamp(22px, 2.8vw, 32px)", lineHeight: 1.2, marginBottom: 16 }}>{t.invT}</h3>
+                <p style={{ color: "var(--t2)", fontSize: 16, lineHeight: 1.75, marginBottom: 32 }}>{t.invD}</p>
+                <button className="bo" style={{ fontSize: 14 }}>{t.becInv}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* PARTNERS */}
+      <Sec id="partners" delay={0.05}>
+        <div style={{ paddingTop: 80, paddingBottom: 80 }}>
+          <div className="ctr"><Lb c={t.secPart} /><H s="clamp(26px,3.5vw,40px)">{t.partT}</H></div>
+          <div style={{ overflow: "hidden", marginTop: 32 }}>
+            <div className="pt">
+              {[...plats, ...plats].map((n, i) => (
+                <div key={i} style={{ minWidth: 190, height: 68, borderRadius: 14, background: "var(--bg3)", border: "1px solid #E2E8F412", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--fh)", fontSize: 15, fontWeight: 600, color: "#C8D4E8", flexShrink: 0 }}>{n}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* BLOG */}
+      <Sec id="blog" bg="var(--bg2)" delay={0.05}>
+        <div style={{ paddingTop: 80, paddingBottom: 100 }}>
+          <div className="ctr">
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 14, marginBottom: 40 }}>
+              <div><Lb c={t.secBlog} /><H s="clamp(26px,3.5vw,40px)">{t.blogT}</H></div>
+              <a href="#" style={{ color: "var(--ac)", fontSize: 14, fontWeight: 600, display: "flex", alignItems: "center", gap: 6, fontFamily: "var(--fh)" }}>{t.allArt} <Arr /></a>
+            </div>
+            <div className="bg3g" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
+              {t.posts.map((p, i) => (
+                <div key={i} className="bc">
+                  <div style={{ height: 160, background: `linear-gradient(135deg,${["var(--bg3)", "#152B48", "#122040"][i]},var(--bg3))`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ width: 56, height: 56, borderRadius: 14, border: `1px solid ${i === 0 ? "#00FFD025" : "#00BFFF25"}`, display: "flex", alignItems: "center", justifyContent: "center" }}>{sI[i]}</div>
+                  </div>
+                  <div style={{ padding: "24px 22px" }}>
+                    <span style={{ display: "inline-block", padding: "4px 12px", borderRadius: 100, background: "#00BFFF12", color: "var(--ac2)", fontSize: 11, fontWeight: 600, marginBottom: 10 }}>{p.tag}</span>
+                    <h4 style={{ fontFamily: "var(--fh)", fontWeight: 600, fontSize: 15, lineHeight: 1.45, marginBottom: 14, minHeight: 44 }}>{p.t}</h4>
+                    <div style={{ display: "flex", gap: 14, color: "var(--t2)", fontSize: 12 }}><span>{p.dt}</span><span>{p.rd} {t.rm}</span></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* CTA */}
+      <Sec id="cta" delay={0.05}>
+        <div style={{ paddingTop: 90, paddingBottom: 100, position: "relative" }}>
+          <div style={{ position: "absolute", width: 500, height: 500, top: "50%", left: "50%", transform: "translate(-50%,-50%)", background: "radial-gradient(circle,#00FFD0,transparent 70%)", opacity: .04, filter: "blur(80px)", borderRadius: "50%", pointerEvents: "none" }} />
+          <div className="ctr" style={{ position: "relative", zIndex: 1 }}>
+            <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center" }}>
+              <h2 style={{ fontFamily: "var(--fh)", fontWeight: 700, fontSize: "clamp(26px, 4vw, 44px)", lineHeight: 1.15, marginBottom: 14, letterSpacing: "-.01em" }}>
+                {t.ctaT} <span style={{ color: "var(--ac)" }}>{t.ctaH}</span>
+              </h2>
+              <p style={{ color: "var(--t2)", fontSize: 16, marginBottom: 40 }}>{t.ctaD}</p>
+              <div style={{ background: "var(--bg3)", borderRadius: 24, padding: "36px 32px", border: "1px solid #E2E8F408" }}>
+                <div className="cfr" style={{ display: "flex", gap: 12, marginBottom: 12 }}>
+                  <input className="fi" placeholder={t.fN} />
+                  <input className="fi" placeholder={t.fC} />
+                </div>
+                <div style={{ marginBottom: 20 }}>
+                  <select className="fi" style={{ appearance: "none", cursor: "pointer" }}>
+                    <option value="">{t.fT}</option>
+                    {t.fTypes.map(o => <option key={o}>{o}</option>)}
+                  </select>
+                </div>
+                <button className="bp" style={{ width: "100%", justifyContent: "center", padding: "18px", fontSize: 16 }}>{t.fBtn}</button>
+                <p style={{ color: "var(--t2)", fontSize: 12, marginTop: 14 }}>{t.fDis}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Sec>
+
+      {/* FOOTER */}
+      <footer style={{ padding: "70px 0 36px", borderTop: "1px solid #E2E8F406" }}>
+        <div className="ctr">
+          <div className="fc" style={{ display: "flex", justifyContent: "space-between", gap: 44, marginBottom: 44 }}>
+            <div style={{ maxWidth: 250 }}>
+              <div style={{ marginBottom: 16 }}><Logo lang={lang} h={20} /></div>
+              <p style={{ color: "var(--t2)", fontSize: 13, lineHeight: 1.7 }}>{t.ftD}</p>
+            </div>
+            <div>
+              <h5 style={{ fontFamily: "var(--fh)", fontWeight: 600, fontSize: 13, marginBottom: 14, color: "var(--ac)" }}>{t.ftSvc}</h5>
+              {t.ftL1.map(l => <a key={l} href="#" style={{ display: "block", color: "var(--t2)", fontSize: 13, marginBottom: 9, transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "var(--t1)"} onMouseLeave={e => e.target.style.color = "var(--t2)"}>{l}</a>)}
+            </div>
+            <div>
+              <h5 style={{ fontFamily: "var(--fh)", fontWeight: 600, fontSize: 13, marginBottom: 14, color: "var(--ac)" }}>{t.ftCo}</h5>
+              {t.ftL2.map(l => <a key={l} href="#" style={{ display: "block", color: "var(--t2)", fontSize: 13, marginBottom: 9, transition: "color .2s" }} onMouseEnter={e => e.target.style.color = "var(--t1)"} onMouseLeave={e => e.target.style.color = "var(--t2)"}>{l}</a>)}
+            </div>
+            <div>
+              <h5 style={{ fontFamily: "var(--fh)", fontWeight: 600, fontSize: 13, marginBottom: 14, color: "var(--ac)" }}>{t.ftCnt}</h5>
+              <a href="#" style={{ display: "flex", alignItems: "center", gap: 7, color: "var(--t2)", fontSize: 13, marginBottom: 9 }}><TgI /> Telegram</a>
+              <p style={{ color: "var(--t2)", fontSize: 12, lineHeight: 1.7, marginTop: 14 }}>ИНН: ____________<br />ОГРН: ____________</p>
+            </div>
+          </div>
+          <div style={{ borderTop: "1px solid #E2E8F406", paddingTop: 20, display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 14 }}>
+            <p style={{ color: "var(--t2)", fontSize: 12 }}>{t.cp}</p>
+            <div style={{ display: "flex", gap: 20 }}>
+              <a href="#" style={{ color: "var(--t2)", fontSize: 12 }}>{t.priv}</a>
+              <a href="#" style={{ color: "var(--t2)", fontSize: 12 }}>{t.terms}</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <button className="ftg"><TgI /></button>
+    </div>
+  );
+}
