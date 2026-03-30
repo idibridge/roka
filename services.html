@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Услуги — РОКА Цифровые Активы</title>
+<meta name="description" content="Полный цикл токенизации: МСП, коммерческая недвижимость, ЦФА, цифровой рубль, KYC/AML, блокчейн-инфраструктура.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.srv-full{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+.srv-full-card{background:var(--card);border-radius:24px;padding:40px 36px;border:1px solid var(--border);transition:all .4s cubic-bezier(.16,1,.3,1)}
+.srv-full-card:hover{border-color:var(--bh);transform:translateY(-4px);box-shadow:var(--shadow);background:var(--card2)}
+.srv-full-icon{width:64px;height:64px;border-radius:18px;background:rgba(0,224,160,.1);border:1px solid rgba(0,224,160,.12);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.srv-full-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.srv-tag-green{background:rgba(0,224,160,.12);color:var(--accent);border:1px solid rgba(0,224,160,.2)}
+.srv-tag-blue{background:rgba(0,191,255,.12);color:var(--accent2);border:1px solid rgba(0,191,255,.2)}
+.srv-tag-pink{background:rgba(232,135,159,.12);color:var(--pink);border:1px solid rgba(232,135,159,.2)}
+.srv-features{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.srv-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text3)}
+.srv-features li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:9px}
+@media(max-width:768px){.srv-full{grid-template-columns:1fr}.srv-full-card{padding:28px 22px}}
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<!-- Floating Telegram -->
+<div class="ftg-wrap">
+  <a href="https://t.me/idi_99" target="_blank" rel="noopener" class="ftg-btn">
+    <div class="ftg-ring"></div><div class="ftg-ring2"></div>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.97 9.307c-.146.658-.537.818-1.084.51l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.913z"/></svg>
+  </a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="ctr nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg height="34" viewBox="0 0 200 40" fill="none"><text x="2" y="33" fill="#E2E8F4" font-family="'Montserrat',sans-serif" font-weight="800" font-size="36" letter-spacing="6" class="logo-text">РОКА</text></svg>
+    </a>
+        <nav class="nav-links">
+      <a href="assets.html" data-ru="Активы" data-en="Assets">Активы</a>
+      <a href="services.html" class="active" data-ru="Услуги" data-en="Services">Услуги</a>
+      <a href="global.html" data-ru="Международные проекты" data-en="International Projects">Международные проекты</a>
+      <a href="blog.html" data-ru="Блог" data-en="Blog">Блог</a>
+      <a href="contacts.html" data-ru="Контакты" data-en="Contacts">Контакты</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-sw"><button data-lang="ru">RU</button><button data-lang="en">EN</button></div>
+      <a href="contacts.html" class="nav-consult" data-ru="Получить консультацию" data-en="Get Consultation">Получить консультацию</a>
+      <button class="burger"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu">
+  <button class="mob-close"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+  <a href="index.html" data-ru="Главная" data-en="Home">Главная</a>
+  <a href="assets.html" data-ru="Активы" data-en="Assets">Активы</a>
+  <a href="services.html" data-ru="Услуги" data-en="Services">Услуги</a>
+  <a href="global.html" data-ru="Международные проекты" data-en="International Projects">Международные проекты</a>
+  <a href="blog.html" data-ru="Блог" data-en="Blog">Блог</a>
+  <a href="contacts.html" data-ru="Контакты" data-en="Contacts">Контакты</a>
+  <div class="lang-sw"><button data-lang="ru">RU</button><button data-lang="en">EN</button></div>
+</div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="ctr">
+    <div class="page-hero-breadcrumb">
+      <a href="index.html" data-ru="Главная" data-en="Home">Главная</a>
+      <span>›</span>
+      <span data-ru="Услуги" data-en="Services">Услуги</span>
+    </div>
+    <div class="label reveal" data-ru="Наши услуги" data-en="Our Services">Наши услуги</div>
+    <h1 class="h1 reveal reveal-d1" style="max-width:640px">
+      <span class="grad-text" data-ru="Комплексный консалтинг" data-en="Comprehensive Consulting">Комплексный консалтинг</span>
+      <span data-ru=" в сфере ЦФА" data-en=" in DFA"> в сфере ЦФА</span>
+    </h1>
+    <p class="body-lg reveal reveal-d2" style="max-width:560px;margin-top:16px" data-ru="Разрабатываем и сопровождаем проекты от идеи до запуска и масштабирования. Структурируем сделки, обеспечиваем правовое сопровождение, привлекаем инвесторов." data-en="We develop and manage projects from concept to launch and scaling. We structure deals, ensure legal compliance, and attract investors.">Разрабатываем и сопровождаем проекты от идеи до запуска и масштабирования. Структурируем сделки, обеспечиваем правовое сопровождение, привлекаем инвесторов.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MISSION STATEMENT -->
+<section class="section" style="padding-top:48px;padding-bottom:48px">
+  <div class="ctr">
+    <div class="reveal" style="max-width:820px;margin:0 auto;text-align:center;background:var(--card);border-radius:24px;padding:48px 40px;border:1px solid var(--border)">
+      <div class="label" style="justify-content:center;margin-bottom:16px" data-ru="Наша миссия" data-en="Our Mission">Наша миссия</div>
+      <p class="h3" style="line-height:1.5;color:var(--text)" data-ru="Мы стремимся демократизировать инвестиции, используя силу блокчейн-технологий и инноваций в сочетании с регулированием ценных бумаг, чтобы открыть новый мир инвестиционных возможностей для каждого." data-en="Our mission is to democratize investments, using the power of blockchain technologies and innovations paired with securities regulations, to bring a new world of investment opportunities to everyone.">Мы стремимся демократизировать инвестиции, используя силу блокчейн-технологий и инноваций в сочетании с регулированием ценных бумаг, чтобы открыть новый мир инвестиционных возможностей для каждого.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES FULL -->
+<section class="section">
+  <div class="ctr">
+    <div class="srv-full">
+
+      <div class="srv-full-card reveal">
+        <div class="srv-full-icon" style="background:rgba(0,224,160,.1)">
+          <svg width="30" height="30" viewBox="0 0 26 26" fill="none" stroke="#00E0A0" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="3" width="9" height="9" rx="2"/><rect x="14" y="3" width="9" height="9" rx="2"/><rect x="3" y="14" width="9" height="9" rx="2"/><path d="M14 18.5h9M18.5 14v9"/></svg>
+        </div>
+        <span class="srv-full-tag srv-tag-green" data-ru="Стратегия" data-en="Strategy">Стратегия</span>
+        <h3 class="h3" data-ru="Структурирование сделок" data-en="Deal Structuring">Структурирование сделок</h3>
+        <p class="body-sm" style="margin-top:12px" data-ru="Разрабатываем продуктовые и проектные стратегии на основе ЦФА. Определяем оптимальную модель токенизации: долговые ЦФА, доля прибыли, поставочные ЦФА или производные финансовые инструменты." data-en="We develop product and project strategies based on DFA. We determine the optimal tokenization model: debt DFA, profit share, delivery DFA or derivative instruments.">Разрабатываем продуктовые и проектные стратегии на основе ЦФА. Определяем оптимальную модель токенизации: долговые ЦФА, доля прибыли, поставочные ЦФА или производные финансовые инструменты.</p>
+        <ul class="srv-features">
+          <li data-ru="Финансовый и юридический анализ актива" data-en="Financial and legal asset analysis">Финансовый и юридический анализ актива</li>
+          <li data-ru="Разработка токеномики и условий выпуска" data-en="Tokenomics and issuance terms development">Разработка токеномики и условий выпуска</li>
+          <li data-ru="Подготовка решения о выпуске (РоВ)" data-en="Preparation of issuance decision">Подготовка решения о выпуске (РоВ)</li>
+          <li data-ru="Выбор оптимальной платформы оператора" data-en="Selection of optimal operator platform">Выбор оптимальной платформы оператора</li>
+        </ul>
+        <div style="margin-top:28px"><a href="contacts.html" class="btn btn-primary btn-sm" data-ru="Обсудить проект" data-en="Discuss Project">Обсудить проект</a></div>
+      </div>
+
+      <div class="srv-full-card reveal reveal-d1">
+        <div class="srv-full-icon" style="background:rgba(0,191,255,.1);border-color:rgba(0,191,255,.15)">
+          <svg width="30" height="30" viewBox="0 0 26 26" fill="none" stroke="#00BFFF" stroke-width="1.7" stroke-linecap="round"><path d="M13 3L4 7v6c0 5.25 3.83 10.16 9 11.35C18.17 23.16 22 18.25 22 13V7L13 3z"/><path d="M9 13l3 3 5-5" opacity=".7"/></svg>
+        </div>
+        <span class="srv-full-tag srv-tag-blue" data-ru="Право" data-en="Legal">Право</span>
+        <h3 class="h3" data-ru="Legal Setup" data-en="Legal Setup">Legal Setup</h3>
+        <p class="body-sm" style="margin-top:12px" data-ru="Оказываем полное правовое сопровождение по ЦФА на всех этапах. Разрабатываем внутренние регламенты выпуска и обращения, структурируем решения о выпуске, готовим документы для раскрытия информации." data-en="We provide full legal support for DFA at all stages. We develop internal issuance and circulation regulations, structure issuance decisions, and prepare disclosure documents.">Оказываем полное правовое сопровождение по ЦФА на всех этапах. Разрабатываем внутренние регламенты выпуска и обращения, структурируем решения о выпуске, готовим документы для раскрытия информации.</p>
+        <ul class="srv-features">
+          <li data-ru="Правовое сопровождение от структурирования до расчётов" data-en="Legal support from structuring to settlements">Правовое сопровождение от структурирования до расчётов</li>
+          <li data-ru="Регламенты для операторов ИС и операторов обмена" data-en="Regulations for IS operators and exchange operators">Регламенты для операторов ИС и операторов обмена</li>
+          <li data-ru="Соответствие 259-ФЗ и требованиям ЦБ" data-en="Compliance with 259-FZ and CBR requirements">Соответствие 259-ФЗ и требованиям ЦБ</li>
+          <li data-ru="Бухгалтерский и налоговый учёт ЦФА" data-en="DFA accounting and tax treatment">Бухгалтерский и налоговый учёт ЦФА</li>
+        </ul>
+        <div style="margin-top:28px"><a href="contacts.html" class="btn btn-outline btn-sm" data-ru="Получить консультацию" data-en="Get Consultation">Получить консультацию</a></div>
+      </div>
+
+      <div class="srv-full-card reveal">
+        <div class="srv-full-icon" style="background:rgba(232,135,159,.1);border-color:rgba(232,135,159,.15)">
+          <svg width="30" height="30" viewBox="0 0 26 26" fill="none" stroke="#E8879F" stroke-width="1.7" stroke-linecap="round"><path d="M4 20 L10 8 L16 14 L22 4"/><circle cx="22" cy="4" r="2.5" fill="#E8879F" stroke="none" opacity=".5"/></svg>
+        </div>
+        <span class="srv-full-tag srv-tag-pink" data-ru="Маркетинг" data-en="Marketing">Маркетинг</span>
+        <h3 class="h3" data-ru="PR и привлечение инвесторов" data-en="PR & Investor Attraction">PR и привлечение инвесторов</h3>
+        <p class="body-sm" style="margin-top:12px" data-ru="Разрабатываем и реализуем комплексные PR- и маркетинговые стратегии для проектов и продуктов. Формируем инвесторскую аудиторию, проводим roadshow, готовим спикеров к публичным выступлениям." data-en="We develop and implement comprehensive PR and marketing strategies. We build investor audiences, conduct roadshows, and prepare speakers for public events.">Разрабатываем и реализуем комплексные PR- и маркетинговые стратегии для проектов и продуктов. Формируем инвесторскую аудиторию, проводим roadshow, готовим спикеров к публичным выступлениям.</p>
+        <ul class="srv-features">
+          <li data-ru="Контакты с профильными СМИ и журналистами" data-en="Contacts with industry media and journalists">Контакты с профильными СМИ и журналистами</li>
+          <li data-ru="Экспертные публикации и нарративный маркетинг" data-en="Expert publications and narrative marketing">Экспертные публикации и нарративный маркетинг</li>
+          <li data-ru="KYC/AML онбординг инвесторов" data-en="Investor KYC/AML onboarding">KYC/AML онбординг инвесторов</li>
+          <li data-ru="Антикризисный PR и управление репутацией" data-en="Crisis PR and reputation management">Антикризисный PR и управление репутацией</li>
+        </ul>
+        <div style="margin-top:28px"><a href="contacts.html" class="btn btn-outline btn-sm" style="border-color:var(--pink);color:var(--pink)" data-ru="Обсудить стратегию" data-en="Discuss Strategy">Обсудить стратегию</a></div>
+      </div>
+
+      <div class="srv-full-card reveal reveal-d1">
+        <div class="srv-full-icon">
+          <svg width="30" height="30" viewBox="0 0 26 26" fill="none" stroke="#00E0A0" stroke-width="1.7" stroke-linecap="round"><circle cx="13" cy="13" r="10"/><path d="M3 13h20M13 3c3 3.5 4 7.5 4 10s-1 6.5-4 10M13 3c-3 3.5-4 7.5-4 10s1 6.5 4 10" opacity=".7"/></svg>
+        </div>
+        <span class="srv-full-tag srv-tag-green" data-ru="Международные" data-en="International">Международные</span>
+        <h3 class="h3" data-ru="Трансграничные проекты" data-en="Cross-Border Projects">Трансграничные проекты</h3>
+        <p class="body-sm" style="margin-top:12px" data-ru="Структурируем сделки между иностранными и российскими компаниями с использованием ЦФА. Готовим и запускаем продукты на базе одной или нескольких юрисдикций. Токенизация активов реального мира для международного рынка." data-en="We structure deals between foreign and Russian companies using DFA. We prepare and launch products across one or multiple jurisdictions. Real world asset tokenization for the international market.">Структурируем сделки между иностранными и российскими компаниями с использованием ЦФА. Готовим и запускаем продукты на базе одной или нескольких юрисдикций. Токенизация активов реального мира для международного рынка.</p>
+        <ul class="srv-features">
+          <li data-ru="Токенизация RWA в иностранных юрисдикциях" data-en="RWA tokenization in foreign jurisdictions">Токенизация RWA в иностранных юрисдикциях</li>
+          <li data-ru="Трансграничные расчёты и комплаенс" data-en="Cross-border settlements and compliance">Трансграничные расчёты и комплаенс</li>
+          <li data-ru="Работа с местными регуляторами" data-en="Engagement with local regulators">Работа с местными регуляторами</li>
+          <li data-ru="Подготовка к крипторегулированию" data-en="Preparation for crypto regulation">Подготовка к крипторегулированию</li>
+        </ul>
+        <div style="margin-top:28px"><a href="global.html" class="btn btn-primary btn-sm" data-ru="Узнать подробнее" data-en="Learn More">Узнать подробнее</a></div>
+      </div>
+
+      <div class="srv-full-card reveal">
+        <div class="srv-full-icon" style="background:rgba(0,191,255,.1);border-color:rgba(0,191,255,.15)">
+          <svg width="30" height="30" viewBox="0 0 26 26" fill="none" stroke="#00BFFF" stroke-width="1.7" stroke-linecap="round"><rect x="4" y="8" width="18" height="13" rx="3"/><path d="M8 8V7a5 5 0 0110 0v1" opacity=".5"/><circle cx="13" cy="15" r="2.5" fill="#00BFFF" stroke="none" opacity=".6"/></svg>
+        </div>
+        <span class="srv-full-tag srv-tag-blue" data-ru="Операторам" data-en="For Operators">Операторам</span>
+        <h3 class="h3" data-ru="Запуск операторов ЦФА" data-en="DFA Operator Launch">Запуск операторов ЦФА</h3>
+        <p class="body-sm" style="margin-top:12px" data-ru="Помогаем новым операторам войти в реестр ЦБ РФ и начать работать на рынке ЦФА. Проводим лицензионные мероприятия, выбираем и внедряем программное обеспечение для выпуска и обращения ЦФА. Передаём экспертизу в вашу команду." data-en="We help new operators enter the CBR registry and start operating in the DFA market. We conduct licensing procedures, select and implement software for DFA issuance and circulation. We transfer expertise to your team.">Помогаем новым операторам войти в реестр ЦБ РФ и начать работать на рынке ЦФА. Проводим лицензионные мероприятия, выбираем и внедряем программное обеспечение для выпуска и обращения ЦФА. Передаём экспертизу в вашу команду.</p>
+        <ul class="srv-features">
+          <li data-ru="Подготовка документов для лицензии ЦБ" data-en="CBR license documentation preparation">Подготовка документов для лицензии ЦБ</li>
+          <li data-ru="Внедрение коробочного или кастомного ПО" data-en="Implementation of boxed or custom software">Внедрение коробочного или кастомного ПО</li>
+          <li data-ru="Правила оператора ИС и оператора обмена" data-en="IS operator and exchange operator rules">Правила оператора ИС и оператора обмена</li>
+          <li data-ru="Сопровождение выездного аудита ЦБ" data-en="CBR on-site audit support">Сопровождение выездного аудита ЦБ</li>
+        </ul>
+        <div style="margin-top:28px"><a href="contacts.html" class="btn btn-outline btn-sm" data-ru="Обсудить запуск" data-en="Discuss Launch">Обсудить запуск</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DETAILED SERVICES -->
+<section class="section">
+  <div class="ctr">
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <div class="label" style="justify-content:center" data-ru="Подробнее" data-en="Details">Подробнее</div>
+      <h2 class="h2" data-ru="Полный спектр услуг" data-en="Full Range of Services">Полный спектр услуг</h2>
+    </div>
+
+    <!-- For Banks -->
+    <div class="reveal" style="background:var(--card);border-radius:24px;padding:48px 40px;border:1px solid var(--border);margin-bottom:32px">
+      <div style="display:grid;grid-template-columns:1fr 200px;gap:32px;align-items:start">
+        <div>
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+            <div style="width:56px;height:56px;border-radius:16px;background:rgba(0,224,160,.1);border:1px solid rgba(0,224,160,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00E0A0" stroke-width="1.5"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/><path d="M12 12v4"/></svg>
+            </div>
+            <div>
+              <span class="srv-full-tag srv-tag-green" data-ru="Для банков" data-en="For Banks">Для банков</span>
+              <h3 class="h3" style="margin-top:6px" data-ru="Решения для финансовых организаций" data-en="Solutions for Financial Institutions">Решения для финансовых организаций</h3>
+            </div>
+          </div>
+          <p class="body-sm" style="margin-bottom:24px;color:var(--text2)" data-ru="Быстро внедрим решения в сфере трансграничных расчетов для Ваших клиентов. Полностью возьмем на себя вопросы по разработке материалов по юридическому сопровождению Ваших клиентов. Обеспечим запуск и сопровождение платформы банка на базе готовых технологических решений." data-en="We will quickly implement cross-border payment solutions for your clients. We will fully handle the development of legal support materials for your clients. We will ensure the launch and support of the bank's platform based on ready-made technological solutions.">Быстро внедрим решения в сфере трансграничных расчетов для Ваших клиентов. Полностью возьмем на себя вопросы по разработке материалов по юридическому сопровождению Ваших клиентов. Обеспечим запуск и сопровождение платформы банка на базе готовых технологических решений.</p>
+          <ul class="srv-features" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+            <li data-ru="Решения для трансграничных расчетов" data-en="Cross-border payment solutions">Решения для трансграничных расчетов</li>
+            <li data-ru="Юридическое сопровождение клиентов" data-en="Legal support for clients">Юридическое сопровождение клиентов</li>
+            <li data-ru="Запуск и сопровождение платформы" data-en="Platform launch and support">Запуск и сопровождение платформы</li>
+            <li data-ru="Готовые технологические решения" data-en="Ready-made technological solutions">Готовые технологические решения</li>
+          </ul>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;opacity:0.8">
+          <img src="bank-building.png" alt="Bank Building" style="width:180px;height:auto;filter:brightness(1.1) sepia(1) saturate(3) hue-rotate(120deg)">
+        </div>
+      </div>
+    </div>
+
+    <!-- For Legal Entities -->
+    <div class="reveal reveal-d1" style="background:var(--card);border-radius:24px;padding:48px 40px;border:1px solid var(--border);margin-bottom:32px">
+      <div style="display:grid;grid-template-columns:1fr 220px;gap:32px;align-items:start">
+        <div>
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+            <div style="width:56px;height:56px;border-radius:16px;background:rgba(0,191,255,.1);border:1px solid rgba(0,191,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div>
+              <span class="srv-full-tag srv-tag-blue" data-ru="Для компаний" data-en="For Companies">Для компаний</span>
+              <h3 class="h3" style="margin-top:6px" data-ru="Привлечение капитала через ЦФА" data-en="Capital Raising via DFA">Привлечение капитала через ЦФА</h3>
+            </div>
+          </div>
+          <p class="body-sm" style="margin-bottom:24px;color:var(--text2)" data-ru="Готовые решения для трансграничных расчетов: ЦФА+УЦП, цифровые активы, факторинг, инвестиционные фонды, платежные решения. Все учетные политики, формы регистров для учета, решение вопросов трансфертного ценообразования, налоговый учет. Привлечение ликвидности через выпуск ЦФА+УЦП." data-en="Ready solutions for cross-border payments: DFA+UCP, digital assets, factoring, investment funds, payment solutions. All accounting policies, register forms, transfer pricing solutions, tax accounting. Liquidity attraction through DFA+UCP issuance.">Готовые решения для трансграничных расчетов: ЦФА+УЦП, цифровые активы, факторинг, инвестиционные фонды, платежные решения. Все учетные политики, формы регистров для учета, решение вопросов трансфертного ценообразования, налоговый учет. Привлечение ликвидности через выпуск ЦФА+УЦП.</p>
+          <div style="background:rgba(14,26,48,.5);border-radius:16px;padding:24px;margin-bottom:24px">
+            <h4 class="h4" style="margin-bottom:16px" data-ru="С нами выпуск цифрового актива - это 5 простых шагов:" data-en="With us, digital asset issuance is 5 simple steps:">С нами выпуск цифрового актива - это 5 простых шагов:</h4>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:flex-start;gap:12px">
+                <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:rgba(0,224,160,.15);color:var(--accent);font-weight:700;font-size:14px;flex-shrink:0">1</span>
+                <p class="body-sm" data-ru="Придумаем какой цифровой актив вы можете выпустить" data-en="We'll figure out which digital asset you can issue">Придумаем какой цифровой актив вы можете выпустить</p>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:12px">
+                <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:rgba(0,224,160,.15);color:var(--accent);font-weight:700;font-size:14px;flex-shrink:0">2</span>
+                <p class="body-sm" data-ru="Подберём платформу для эмиссии" data-en="We'll select an issuance platform">Подберём платформу для эмиссии</p>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:12px">
+                <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:rgba(0,224,160,.15);color:var(--accent);font-weight:700;font-size:14px;flex-shrink:0">3</span>
+                <p class="body-sm" data-ru="Подготовим всю необходимую документацию для выпуска, работы и погашения цифрового актива" data-en="We'll prepare all necessary documentation for issuance, operation and redemption of the digital asset">Подготовим всю необходимую документацию для выпуска, работы и погашения цифрового актива</p>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:12px">
+                <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:rgba(0,224,160,.15);color:var(--accent);font-weight:700;font-size:14px;flex-shrink:0">4</span>
+                <p class="body-sm" data-ru="Разместим эмиссию на выбранной платформе" data-en="We'll place the issuance on the selected platform">Разместим эмиссию на выбранной платформе</p>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:12px">
+                <span style="display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:rgba(0,224,160,.15);color:var(--accent);font-weight:700;font-size:14px;flex-shrink:0">5</span>
+                <p class="body-sm" data-ru="Обеспечим маркетмейкинг и отношения с инвесторами" data-en="We'll provide market making and investor relations">Обеспечим маркетмейкинг и отношения с инвесторами</p>
+              </div>
+            </div>
+          </div>
+          <ul class="srv-features" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+            <li data-ru="Несколько площадок на выбор" data-en="Multiple platforms to choose from">Несколько площадок на выбор</li>
+            <li data-ru="Подготовка и выпуск токена" data-en="Token preparation and issuance">Подготовка и выпуск токена</li>
+            <li data-ru="Маркетмейкинг и отношения с инвесторами" data-en="Market making and investor relations">Маркетмейкинг и отношения с инвесторами</li>
+            <li data-ru="Продукт, воронки, выручка, экономика" data-en="Product, funnels, revenue, economics">Продукт, воронки, выручка, экономика</li>
+          </ul>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;opacity:0.8">
+          <img src="office-towers.png" alt="Office Towers" style="width:200px;height:auto;filter:brightness(1.1) sepia(1) saturate(3) hue-rotate(180deg)">
+        </div>
+      </div>
+    </div>
+
+    <!-- Consulting -->
+    <div class="reveal reveal-d2" style="background:var(--card);border-radius:24px;padding:48px 40px;border:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+        <div style="width:56px;height:56px;border-radius:16px;background:rgba(232,135,159,.1);border:1px solid rgba(232,135,159,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E8879F" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <span class="srv-full-tag srv-tag-pink" data-ru="Консалтинг" data-en="Consulting">Консалтинг</span>
+          <h3 class="h3" style="margin-top:6px" data-ru="Комплексная экспертиза" data-en="Comprehensive Expertise">Комплексная экспертиза</h3>
+        </div>
+      </div>
+      <p class="body-sm" style="margin-bottom:24px;color:var(--text2)" data-ru="Все компетенции в одной команде с опытом совместной работы и интеграции в команды клиентов. От идеи до продукта под ключ." data-en="All competencies in one team with experience in joint work and integration into client teams. From idea to product turnkey.">Все компетенции в одной команде с опытом совместной работы и интеграции в команды клиентов. От идеи до продукта под ключ.</p>
+      <ul class="srv-features" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+        <li data-ru="Бухгалтерский учет, налоги и отчетность по ЦФА" data-en="Accounting, taxes and DFA reporting">Бухгалтерский учет, налоги и отчетность по ЦФА</li>
+        <li data-ru="Юридическое сопровождение текущей деятельности" data-en="Legal support for current activities">Юридическое сопровождение текущей деятельности</li>
+        <li data-ru="Создание платформы бренда и коммуникационной стратегии" data-en="Brand platform and communication strategy creation">Создание платформы бренда и коммуникационной стратегии</li>
+        <li data-ru="Оценка целевой аудитории и маркетинг продукта" data-en="Target audience assessment and product marketing">Оценка целевой аудитории и маркетинг продукта</li>
+        <li data-ru="Создание команды проекта и координация работы" data-en="Project team creation and work coordination">Создание команды проекта и координация работы</li>
+        <li data-ru="Разработка от идеи до продукта, концепции и стратегии" data-en="Development from idea to product, concepts and strategy">Разработка от идеи до продукта, концепции и стратегии</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROCESS (full) -->
+<section class="section" style="background:rgba(22,40,71,.3)">
+  <div class="ctr">
+    <div class="reveal" style="text-align:center;margin-bottom:56px">
+      <div class="label" style="justify-content:center" data-ru="Процесс" data-en="Process">Процесс</div>
+      <h2 class="h2" data-ru="Как мы работаем" data-en="How We Work">Как мы работаем</h2>
+    </div>
+    <div class="process-grid">
+      <div class="step reveal"><span class="step-num n1">01</span><div class="step-title" data-ru="Оценка актива" data-en="Assessment">Оценка актива</div><div class="step-desc" data-ru="Финансовый due diligence, рыночная оценка, анализ потенциала токенизации." data-en="Financial due diligence, market valuation, tokenization potential analysis.">Финансовый due diligence, рыночная оценка, анализ потенциала токенизации.</div></div>
+      <div class="step reveal reveal-d1"><span class="step-num n2">02</span><div class="step-title" data-ru="Структурирование" data-en="Structuring">Структурирование</div><div class="step-desc" data-ru="Правовое оформление, выбор типа ЦФА, разработка токеномики и условий размещения." data-en="Legal documentation, DFA type selection, tokenomics and placement terms development.">Правовое оформление, выбор типа ЦФА, разработка токеномики и условий размещения.</div></div>
+      <div class="step reveal reveal-d2"><span class="step-num n3">03</span><div class="step-title" data-ru="Выпуск ЦФА" data-en="DFA Issuance">Выпуск ЦФА</div><div class="step-desc" data-ru="Регистрация на лицензированном операторе, деплой смарт-контрактов, создание реестра." data-en="Registration on licensed operator, smart contract deployment, registry creation.">Регистрация на лицензированном операторе, деплой смарт-контрактов, создание реестра.</div></div>
+      <div class="step reveal reveal-d3"><span class="step-num n4">04</span><div class="step-title" data-ru="Привлечение инвесторов" data-en="Investor Acquisition">Привлечение инвесторов</div><div class="step-desc" data-ru="Маркетинг, roadshow, онбординг инвесторов через KYC/AML, первичное размещение." data-en="Marketing, roadshow, investor onboarding via KYC/AML, primary placement.">Маркетинг, roadshow, онбординг инвесторов через KYC/AML, первичное размещение.</div></div>
+      <div class="step reveal reveal-d4"><span class="step-num n5">05</span><div class="step-title" data-ru="Расчёты и отчётность" data-en="Settlement">Расчёты и отчётность</div><div class="step-desc" data-ru="Автоматизированные выплаты, налоговая отчётность, мониторинг на блокчейне." data-en="Automated payments, tax reporting, blockchain monitoring.">Автоматизированные выплаты, налоговая отчётность, мониторинг на блокчейне.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="ctr">
+    <div class="cta-section reveal" style="text-align:center">
+      <div class="label" style="justify-content:center" data-ru="Начать" data-en="Start">Начать</div>
+      <h2 class="h2" data-ru="Готовы обсудить ваш проект?" data-en="Ready to Discuss Your Project?">Готовы обсудить ваш проект?</h2>
+      <p class="body-sm" style="margin-top:12px;max-width:480px;margin-left:auto;margin-right:auto" data-ru="Свяжитесь с нами любым удобным способом." data-en="Contact us in any convenient way.">Свяжитесь с нами любым удобным способом.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px">
+        <a href="https://t.me/idi_99" target="_blank" class="btn btn-primary">Telegram</a>
+        <a href="contacts.html" class="btn btn-outline" data-ru="Написать нам" data-en="Contact Us">Написать нам</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="ctr">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html"><svg height="32" viewBox="0 0 190 34" fill="none"><text x="2" y="28" fill="#E2E8F4" font-family="'Montserrat',sans-serif" font-weight="800" font-size="30" letter-spacing="5" class="logo-text">РОКА</text></svg></a>
+        <p class="footer-brand-desc" data-ru="Токенизация МСП и коммерческой недвижимости. Работаем в РФ и международных юрисдикциях." data-en="SME and commercial real estate tokenization. Operating in Russia and international jurisdictions.">Токенизация МСП и коммерческой недвижимости. Работаем в РФ и международных юрисдикциях.</p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-ru="Услуги" data-en="Services">Услуги</div>
+        <nav class="footer-links">
+          <a href="services.html" data-ru="Токенизация МСП" data-en="SME Tokenization">Токенизация МСП</a>
+          <a href="services.html" data-ru="Коммерческая недвижимость" data-en="Commercial Real Estate">Коммерческая недвижимость</a>
+          <a href="services.html" data-ru="ЦФА для инвесторов" data-en="DFA for Investors">ЦФА для инвесторов</a>
+          <a href="global.html" data-ru="Международным" data-en="Global">Международным</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title" data-ru="Компания" data-en="Company">Компания</div>
+        <nav class="footer-links">
+          <a href="blog.html" data-ru="Блог" data-en="Blog">Блог</a>
+          <a href="contacts.html" data-ru="Контакты" data-en="Contacts">Контакты</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-contacts">
+        <a href="https://wa.me/79930770197" class="footer-contact-link" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+        <a href="https://t.me/idi_99" class="footer-contact-link" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161l-1.97 9.307c-.146.658-.537.818-1.084.51l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.913z"/></svg>Telegram</a>
+        <a href="mailto:info@roka.digital" class="footer-contact-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 7l10 7 10-7" stroke-linecap="round"/></svg>info@roka.digital</a>
+      <a href="https://linkedin.com/company/roka-digital" class="footer-contact-link" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+        <a href="https://vc.ru/roka" class="footer-contact-link" target="_blank" rel="noopener"><img src="Vc_ru-logo.png" alt="VC.ru" style="width: 18px; height: 18px; margin-right: 8px; vertical-align: middle;">vc.ru</a>
+      </div>
+      <div class="footer-copy" data-ru="© 2025 Цифровые Активы «Рока»" data-en="© 2025 ROKA Digital Assets">© 2025 Цифровые Активы «Рока»</div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
