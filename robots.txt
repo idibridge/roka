@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /privacy.html
-
-Sitemap: https://roka-dfa.io/sitemap.xml
-
-Host: roka-dfa.io
