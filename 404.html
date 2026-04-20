@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Страница не найдена — РОКА</title>
+<script>
+// Redirect old .html URLs to clean URLs
+var path = window.location.pathname;
+if (path.endsWith('.html') && path !== '/404.html') {
+  var clean = path.replace('.html', '');
+  if (clean === '/index') clean = '/';
+  window.location.replace(clean);
+} else {
+  // If not an .html redirect, show 404 page after 3 seconds then go home
+  setTimeout(function() {
+    document.getElementById('msg').style.display = 'block';
+  }, 100);
+}
+</script>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="msg" style="display:none;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px">
+<div>
+<h1 style="font-size:clamp(48px,10vw,120px);font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px">404</h1>
+<p style="font-size:18px;color:var(--text2);margin-bottom:32px">Страница не найдена</p>
+<a href="/" class="btn btn-primary">На главную</a>
+</div>
+</div>
+</body>
+</html>
