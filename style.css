@@ -502,7 +502,7 @@ section.section{position:relative;}
 .benefit-card:hover{background:var(--card2)}
 /* Top-right corner bracket decoration — copied from cfa.digital */
 .benefit-card::after{content:'';position:absolute;top:16px;right:16px;width:14px;height:14px;border-top:2px solid rgba(0,224,160,.35);border-right:2px solid rgba(0,224,160,.35)}
-.benefit-icon{margin-bottom:20px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.benefit-icon{margin-bottom:20px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .benefit-icon svg path{fill:var(--accent) !important}
 .benefit-text{font-size:14px;color:var(--text3);line-height:1.65}
 
