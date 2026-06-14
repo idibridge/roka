@@ -515,6 +515,9 @@ section.section{position:relative;}
 .who-card-illus::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(0,191,255,.06),transparent 70%)}
 .who-card-label{padding:20px 28px 28px;font-size:clamp(15px,1.4vw,17px);font-weight:700;color:var(--accent)}
 .who-card-sub{padding:0 28px 24px;font-size:13px;color:var(--text2);line-height:1.6;margin-top:-8px}
+.who-illus-box{display:flex;align-items:center;justify-content:center;width:170px;height:170px;border-radius:20px;background:rgba(255,255,255,.02)}
+.who-illus-box img{width:130px;height:130px;object-fit:contain;display:block}
+@media(max-width:767px){.who-illus-box{width:120px!important;height:120px!important}.who-illus-box img{width:90px!important;height:90px!important}}
 
 /* ─── PLATFORM CAPABILITIES (alternating layout) ─── */
 .platform-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
