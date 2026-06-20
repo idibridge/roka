@@ -260,10 +260,8 @@
 
 })();
 
-/* ─── CONTACT FORM → Telegram Bot ─── */
-var _t = [56,48,53,49,54,50,51,50,57,50,58,65,65,69,65,48,69,84,90,104,100,122,112,105,121,71,86,86,110,73,49,115,45,57,95,106,102,108,122,120,121,120,66,65,117,69];
-var TG_BOT_TOKEN = _t.map(function(c){return String.fromCharCode(c)}).join('');
-var TG_CHAT_ID   = '8291783361';
+/* ─── CONTACT FORM → общий бэкенд (casmo.io/api/lead) ─── */
+var LEAD_FORM_ENDPOINT = 'https://casmo.io/api/lead';
 
 
 /* ─── SECURITY: sanitize user input ─── */
@@ -286,30 +284,33 @@ function handleContactForm(e) {
   var email   = inputs[3] ? sanitizeInput(inputs[3].value) : '';
   var type    = inputs[4] ? inputs[4].options[inputs[4].selectedIndex].text : '';
   var message = inputs[5] ? sanitizeInput(inputs[5].value) : '';
+  var hpField = document.getElementById('rokaHoneypot');
+  var hp      = hpField ? hpField.value : '';
 
   if (!name || !phone) {
     alert('Пожалуйста, заполните обязательные поля (Имя и Телефон)');
     return false;
   }
 
-  var text = '📋 *Новая заявка с сайта РОКА*\n\n'
-    + '👤 *Имя:* ' + name + '\n'
-    + '🏢 *Компания:* ' + (company || '—') + '\n'
-    + '📞 *Телефон:* ' + phone + '\n'
-    + '📧 *Email:* ' + (email || '—') + '\n'
-    + '📌 *Тип запроса:* ' + type + '\n'
-    + '💬 *Сообщение:* ' + (message || '—');
+  var detailLines = [];
+  if (company) detailLines.push('Компания: ' + company);
+  if (email) detailLines.push('Email: ' + email);
+  if (message) detailLines.push('Сообщение: ' + message);
+  var fullMessage = detailLines.join('\n');
 
   var btn = form.querySelector('button[type=submit]');
   if (btn) { btn.disabled = true; btn.style.opacity = '.6'; }
 
-  fetch('https://api.telegram.org/bot' + TG_BOT_TOKEN + '/sendMessage', {
+  fetch(LEAD_FORM_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      chat_id: TG_CHAT_ID,
-      text: text,
-      parse_mode: 'Markdown'
+      site: 'roka',
+      name: name,
+      contact: phone,
+      direction: type,
+      message: fullMessage,
+      hp: hp
     })
   })
   .then(function(r) { return r.json(); })
@@ -317,7 +318,7 @@ function handleContactForm(e) {
     if (data.ok) {
       showFormSuccess(form, btn);
     } else {
-      console.error('Telegram API error:', data);
+      console.error('Lead API error:', data);
       alert('Ошибка отправки. Попробуйте связаться через Telegram или WhatsApp.');
       if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
     }
